@@ -1,0 +1,22 @@
+.env
+# Exclude Environment Variables (CRITICAL for your API Keys)
+.env
+.env.local
+
+# Exclude Virtual Environments (Saves you from uploading thousands of files)
+venv/
+env/
+optirank/
+.conda/
+miniconda3/
+
+# Exclude Python Cache (Keeps the repo clean)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Exclude OS & Editor files
+.vscode/
+.idea/
+.DS_Store
