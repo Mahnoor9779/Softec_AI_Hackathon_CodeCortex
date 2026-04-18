@@ -1,6 +1,6 @@
 ## InboxPilot: AI-Powered University Opportunity Ranker
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi) ![Streamlit](https://img.shields.io/badge/Streamlit-%23FE4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white) ![Groq](https://img.shields.io/badge/Groq-F54E27?style=for-the-badge&logo=groq&logoColor=white) ![Pydantic](https://img.shields.io/badge/Pydantic-E92063?style=for-the-badge&logo=pydantic&logoColor=white)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![FastAPI](https://img.shields.io/badge/Streamlit-%23FE4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white) ![Groq](https://img.shields.io/badge/Groq-F54E27?style=for-the-badge&logo=groq&logoColor=white) ![Pydantic](https://img.shields.io/badge/Pydantic-E92063?style=for-the-badge&logo=pydantic&logoColor=white)
 
 **InboxPilot** is a full-stack AI-powered web application that transforms a messy university inbox into a clean, ranked list of scholarships, internships, and fellowships — in seconds. Built with **Python, FastAPI, and Streamlit**, it uses the **Groq LLM API** to extract structured opportunity data from raw email text, then applies a fully deterministic scoring algorithm to rank results by urgency and student profile match.
 
