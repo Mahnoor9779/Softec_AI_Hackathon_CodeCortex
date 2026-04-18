@@ -4,7 +4,7 @@
 
 **InboxPilot** is a full-stack AI-powered web application that transforms a messy university inbox into a clean, ranked list of scholarships, internships, and fellowships — in seconds. Built with **Python, FastAPI, and Streamlit**, it uses the **Groq LLM API** to extract structured opportunity data from raw email text, then applies a fully deterministic scoring algorithm to rank results by urgency and student profile match.
 
-What sets OptiRank Copilot apart is its zero-ML ranking engine: every scoring decision is transparent, reproducible, and explainable — no black-box models, no external databases, no heavy dependencies. It also features a built-in spam detection layer that flags scam emails before they ever reach the student.
+What sets InboxPilot apart is its zero-ML ranking engine: every scoring decision is transparent, reproducible, and explainable — no black-box models, no external databases, no heavy dependencies. It also features a built-in spam detection layer that flags scam emails before they ever reach the student.
 
 ---
 
@@ -30,7 +30,7 @@ What sets OptiRank Copilot apart is its zero-ML ranking engine: every scoring de
 
 ---
 
-## Under the Hood: Scoring Algorithm
+## Under the Hood: Scoring Algorithm & Architecture
 
 InboxPilot uses a **pure Python deterministic scoring function** with four weighted components that always sum to 100 points:
 
@@ -41,4 +41,24 @@ InboxPilot uses a **pure Python deterministic scoring function** with four weigh
 | **Financial Need** | 20 pts | 20 if need + funded, 10 if no need, 0 if need but unfunded |
 | **Deadline Urgency** | 35 pts | Sliding scale: 35 (≤3 days) → 28 (≤7) → 20 (≤14) → 12 (≤30) → 6 (>30) → 5 (no deadline) → 0 (expired) |
 
-No machine learning. No randomness. The same input always produces the same score.
+*No machine learning. No randomness. The same input always produces the same score.*
+
+### Architecture Flow
+1. **Streamlit Frontend** captures user profile and raw emails, sending a synchronous `POST` request to the backend.
+2. **FastAPI Backend** intercepts the request and routes the raw text to the **Groq API (llama3-8b-8192)** with strict `json_object` formatting constraints.
+3. The backend runs the extracted JSON through the **pure Python Spam Heuristics** and the **Deterministic Weighted Scorer**.
+4. The finalized, ranked array is returned to Streamlit to render the interactive UI cards.
+
+---
+
+## Getting Started
+
+### Prerequisites
+* [Python 3.10+](https://www.python.org/downloads/) (Python 3.11 recommended)
+* A free [Groq API Key](https://console.groq.com/keys)
+
+### Installation
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/Mahnoor9779/Softec_AI_Hackathon_CodeCortex](https://github.com/Mahnoor9779/Softec_AI_Hackathon_CodeCortex)
+   cd InboxPilot
